@@ -1,111 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.test</groupId>
-    <artifactId>my-application</artifactId>
-    <version>1.0.0</version>
-    <packaging>jar</packaging>
-    <name>Test</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>in.javahome</groupId>
+	<artifactId>myweb</artifactId>
+	<packaging>war</packaging>
+	<version>8.3.2</version>
+	<name>Java Home myweb</name>
+	<url>http://maven.apache.org</url>
+	
+	
+	
+	
+	<properties>
+		<docker.image.prefix>kammana</docker.image.prefix>
+	</properties>	
+	<dependencies>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.23</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-scala_${scala.major.version}</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-			<plugin>
-				 <groupId>org.springframework.boot</groupId>
-				 <artifactId>spring-boot-maven-plugin</artifactId>
-				 <configuration>
-					<skip>true</skip>
-				 </configuration>
-				 <executions>
-					<execution>
-					   <phase>none</phase>
-					</execution>
-				 </executions>
-			  </plugin>
-			  <plugin>
-				 <groupId>com.google.cloud.tools</groupId>
-				 <artifactId>jib-maven-plugin</artifactId>
-				 <configuration>
-					<skip>true</skip>
-				 </configuration>
-      </plugin>
-	  <plugin>
-		  <groupId>org.scoverage</groupId>
-		  <artifactId>scoverage-maven-plugin</artifactId>
-		  <version>1.0.0</version>
-		  <configuration>
-			<minimumCoverage>80</minimumCoverage>
-			<failOnMinimumCoverage>false</failOnMinimumCoverage>
-		  </configuration>
-		  <executions>
-			<execution>
-			  <goals>
-				<goal>check</goal>
-			  </goals>
-			  <phase>test</phase>
-			</execution>
-		  </executions>
-		</plugin>
 		
-        </plugins>
-    </build>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
 
+	</dependencies>
+	
+	<distributionManagement>
+		 <snapshotRepository>
+		    <id>nexusRepo</id>
+		    <url>http://13.233.230.166:8081/repository/maven-snapshots/</url>
+		 </snapshotRepository>
+		
+		<repository>
+		    <id>nexusRepo</id>
+		    <url>http://13.233.230.166:8081/repository/maven-releases/</url>
+		</repository>
+  	</distributionManagement>
+	
+	<pluginRepositories>
+	    <pluginRepository>    
+		<id>maven1</id>
+		<name>Maven.org</name>
+		<url>http://repo1.maven.org/maven2</url>
+	    </pluginRepository>
+	</pluginRepositories>
+
+	
 </project>
